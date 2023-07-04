@@ -6,7 +6,8 @@ import ProductsList from './components/ProductsList';
 function App() {
   return (
     <ProductsList>
-      <Product productInfo={ products } />
+      { products
+        .map((product, index) => <Product key={ index } productInfo={ product } />)}
     </ProductsList>
   );
 }
