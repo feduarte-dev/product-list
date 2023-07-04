@@ -1,22 +1,23 @@
 type ProductProps = {
-  id: number,
-  title: string,
-  description?: string,
-  price: number,
-  discountPercentage?: number,
-  rating?: number,
-  stock?: number,
-  brand?: string,
-  category?: string,
-  image: string
+  productInfo: {
+    id: number,
+    title: string,
+    description?: string,
+    price: number,
+    discountPercentage?: number,
+    rating?: number,
+    stock?: number,
+    brand?: string,
+    category?: string,
+    image: string
+  }
 };
 
-function Product({ productInfo }: ProductProps[]) {
-  const { id, title, price, image } = productInfo;
+function Product({ productInfo }: ProductProps) {
   return (
     <>
       {
-        productInfo.map((product) => (
+        (productInfo.map((product: typeof productInfo) => (
 
           <li key={ product.id } className="productList">
             {product.title}
@@ -25,7 +26,7 @@ function Product({ productInfo }: ProductProps[]) {
             {product.price}
             <img src={ product.image } alt={ product.title } />
           </li>
-        ))
+        )))
       }
   </>);
 }
